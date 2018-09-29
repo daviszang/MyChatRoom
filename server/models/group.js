@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+
+//Define a schema
+var Schema = mongoose.Schema;
+
+var GroupModelSchema = new Schema({
+    // _id: mongoose.Schema.Types.ObjectId,
+    name: {type: String, required: true},
+    admin: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
+    // channels
+    members:[{type: mongoose.Schema.Types.ObjectId, ref: 'Channel'}]
+});
+
+module.exports = mongoose.model('Group', GroupModelSchema);
