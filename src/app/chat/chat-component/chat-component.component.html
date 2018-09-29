@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><span class="glyphicon glyphicon-th-list"></span> Room</h3>
+        </div>
+        <div class="panel-body">
+          <div style="height:400px; overflow-x:hidden; overflow-y:scroll;">
+            <div id="message-list">
+              <div style="margin-bottom:25px;" *ngFor="let message of getSortedMessage()">
+                <div *ngIf="message.type === action.JOINED || message.type === action.LEFT">
+                  <div class="media-left">
+                    <img class="media-object" style="width:20px; height:20px;" src="../../../assets/images/1.png">
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">{{ message.content }}</h4>
+                  </div>
+                </div>
+                <div *ngIf="message.type === action.MESSAGE">
+                  <div class="media">
+                    <div class="media-left">
+                      <img class="media-object" style="width:48px; height:48px;" src="../../../assets/images/0.png">
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">{{ message.from }}</h4>
+                      <span>{{ message.content }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <form id="form-chat">
+              <div class="input-group">
+                <input type="text" [ngModelOptions]="{standalone: true}" placeholder="Type your message" [(ngModel)]="messageContent"
+                  (keyup.enter)="sendMessage(messageContent)" class="form-control">
+                <span class="input-group-btn"><button class="btn btn-default" (click)="sendMessage(messageContent)"
+                    type="submit">Go</button></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a class="panel-title btn btn-success" href="./chooseGroupAndChannel"><span class="glyphicon glyphicon-user"></span>Choose
+            Channel</a>
+        </div>
+        <div class="panel-body">
+          <div style="height:434px; overflow-x:hidden; overflow-y:scroll;">
+            <div id="user-list">
+              <div class="media" *ngFor="let user of users">
+                <div class="media-left">
+                  <img class="media-object" style="width:20px; height:20px;" src="../../../assets/images/2.png">
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">{{ user.name }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <ul>
+  <li *ngFor="let message of messages">
+    <p>
+      <span> {{message.content}} </span>
+    </p>
+  </li>
+</ul>
+<div class="chat-footer-container"> -->
+<!-- <mat-icon>message</mat-icon> -->
+<!-- <mat-form-field class="chat-input"> -->
+<!-- <input matInput #inputMessage maxlength="140" placeholder="Type your message" [(ngModel)]="messageContent"
+  (keyup.enter)="sendMessage(messageContent)"> -->
+<!-- <mat-hint align="end">{{inputMessage.value.length}}/140</mat-hint> -->
+<!-- </mat-form-field> -->
+<!-- </div> -->

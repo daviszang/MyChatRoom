@@ -1,0 +1,50 @@
+<div class="container" id="choose-group-channel">
+    <!-- group and channel -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span>Group</h3>
+                </div>
+                <div class="panel-body">
+                    <div style="height:434px; overflow-x:hidden; overflow-y:scroll;">
+                        <div id="group-list">
+                            <div class="media" *ngFor="let group of groups">
+                                <div class="media-left">
+                                    <!-- <img class="media-object" style="width:20px; height:20px;" src="'/static/images/' +'.png'"> -->
+                                </div>
+                                <div class="media-body">
+                                    <button  (click)="changeGroupName(group)" type="button" class="btn btn-lg btn-block media-heading"
+                                        [ngClass]="{'btn-primary':choosedGroup === group._id}">{{ group.name }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span>Channel</h3>
+                </div>
+                <div class="panel-body">
+                    <div style="height:434px; overflow-x:hidden; overflow-y:scroll;">
+                        <div id="channel-list">
+                            <div class="media" *ngFor="let channel of channels">
+                                <div class="media-left">
+                                    <!-- <img class="media-object" style="width:20px; height:20px;" src="'/static/images/' +  '.png'"> -->
+                                </div>
+                                <div class="media-body">
+                                    <!-- <h4 class="media-heading" v-text="channel.name"></h4> -->
+                                    <a  (click)="chooseGroupAndChannel(choosedGroup,channel._id)" type="button"
+                                        class="btn btn-lg btn-block btn-success media-heading">{{ channel.name }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

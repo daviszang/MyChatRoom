@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div>
+    <a [routerLink]="['/admin']">admin</a>
+    <a [routerLink]="['/chatroom']">chatroom</a>
+    <a [routerLink]="['/login']">login</a>
+    <a [routerLink]="['/chooseGroupAndChannel']">chooseGroupAndChannel</a>
+</div> -->
+<header class="navbar navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="./" class="navbar-brand">Chat Room</a>
+        </div>
+        <nav class="collapse navbar-collapse " id="bs-navbar">
+            <ul class="nav navbar-nav navbar-dark bg-dark">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="./signout" (click)="singout()">Sign Out</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<router-outlet></router-outlet>
